@@ -1,11 +1,12 @@
-const fetch = require("node-fetch");
-const querystring = require("querystring");
-const stringify = require("../utils/stringify.js");
+const fetch = require('node-fetch');
+const querystring = require('querystring');
+const stringify = require('../utils/stringify.js');
 
-const GOOGLEAPIS_ORIGIN = "https://www.googleapis.com";
+const REDIRECT_SERVER_HOST = 'https://modest-benz-9b4166.netlify.app';
+
 const headers = {
-  "Access-Control-Allow-Origin": process.env.HOST,
-  "Content-Type": "application/json; charset=utf-8",
+  'Access-Control-Allow-Origin': process.env.HOST,
+  'Content-Type': 'application/json; charset=utf-8',
 };
 
 exports.handler = async (event) => {
@@ -15,7 +16,7 @@ exports.handler = async (event) => {
     headers: { referer },
   } = event;
 
-  const url = new URL(path, GOOGLEAPIS_ORIGIN);
+  const url = new URL(path, REDIRECT_SERVER_HOST);
   const parameters = querystring.stringify({
     ...queryStringParameters,
     key: process.env.API_KEY,
