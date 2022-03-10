@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 const querystring = require('querystring');
 const stringify = require('../utils/stringify.js');
 
-const REDIRECT_SERVER_HOST = 'https://onstar.netlify.app';
+const ORIGINAL_HOST = 'https://www.googleapis.com';
 
 const headers = {
   'Access-Control-Allow-Origin': process.env.HOST,
@@ -16,7 +16,7 @@ exports.handler = async (event) => {
     headers: { referer },
   } = event;
 
-  const url = new URL(path, REDIRECT_SERVER_HOST);
+  const url = new URL(path, ORIGINAL_HOST);
   const parameters = querystring.stringify({
     ...queryStringParameters,
     key: process.env.API_KEY,
