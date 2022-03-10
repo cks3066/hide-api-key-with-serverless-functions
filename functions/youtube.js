@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 const querystring = require('querystring');
 const stringify = require('../utils/stringify.js');
 
-const REDIRECT_SERVER_HOST = 'https://modest-benz-9b4166.netlify.app';
+const REDIRECT_SERVER_HOST = 'https://onstar.netlify.app';
 
 const headers = {
   'Access-Control-Allow-Origin': process.env.HOST,
